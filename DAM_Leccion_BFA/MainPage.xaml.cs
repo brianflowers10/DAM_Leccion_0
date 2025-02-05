@@ -6,6 +6,8 @@ namespace DAM_Leccion_BFA
     {
         int count = 0;
 
+        public PersonaModel personaModel { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
@@ -26,12 +28,12 @@ namespace DAM_Leccion_BFA
 
         public void Ejecutar()
         {
-            PersonaModel personaModel = new PersonaModel()
+             personaModel = new PersonaModel()
             {
                 Nombre = "Holaaaaa", 
             };
 
-            BindingContext = personaModel.Nombre;
+            BindingContext = personaModel;
            // Binding personaBinding = new Binding();
             //personaBinding.Source = personaModel; //Origen
             //personaBinding.Path = "Nombre";//Ruta
@@ -39,10 +41,11 @@ namespace DAM_Leccion_BFA
             //txtNombre.Text = personaModel.Nombre;
 
         }
-
+        //Evento Guardar
         private void btnAceptar_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Asistente del sistema", "Se ah guardado el registro en la BD", "Aceptar");
+            //DisplayAlert("Asistente del sistema", "Se ah guardado el registro en la BD", "Aceptar");
+            personaModel.Nombre = "Alondra Flores";
         }
     }
 
