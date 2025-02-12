@@ -1,29 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    
-    x:Class="DAM_Leccion_BFA.MainPage"
-    
-    xmlns:Leccion2="clr-namespace:DAM_Leccion_BFA.Model"
-    
-    >
-   
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Leccion2:PersonaModel x:Key="persona" Nombre="Sofia"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-        
-    
-    
-    
+    x:Class="DAM_Leccion_BFA.MainPage">
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+
             <Image
                 Source="dotnet_bot.png"
                 HeightRequest="185"
@@ -47,17 +32,32 @@
                 HorizontalOptions="Fill"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Text="Click me"/>
+
             <Entry
                 x:Name="txtNombre"
                 Text="{Binding Nombre}"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Escribe un nombre"/>
+
+            <Entry
+                x:Name="txtApellido"
+                Text="{Binding Apellido}"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Escribe un apellido"/>
+
+            <Entry
+                x:Name="txtEdad"
+                Text="{Binding Edad}"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Edad"
+                Keyboard="Numeric"/>
+
             <Button
                 x:Name="btnAceptar"
                 Clicked="btnAceptar_Clicked"
                 HorizontalOptions="CenterAndExpand"
                 Text="Aceptar"/>
-            
+
         </VerticalStackLayout>
     </ScrollView>
 

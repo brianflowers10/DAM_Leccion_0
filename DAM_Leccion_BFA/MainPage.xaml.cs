@@ -6,12 +6,20 @@ namespace DAM_Leccion_BFA
     {
         int count = 0;
 
-        public PersonaModel personaModel { get; set; }
+        // Propiedad pública para que el binding funcione correctamente
+        public PersonaModel PersonaModel { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
-            Ejecutar();
+            PersonaModel = new PersonaModel()
+            {
+                Nombre = "Lupita",
+                Apellido = "Olvera",
+                Edad = 25
+            };
+
+            BindingContext = PersonaModel;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
@@ -26,27 +34,15 @@ namespace DAM_Leccion_BFA
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
 
-        public void Ejecutar()
-        {
-             personaModel = new PersonaModel()
-            {
-                Nombre = "Holaaaaa", 
-            };
-
-            BindingContext = personaModel;
-           // Binding personaBinding = new Binding();
-            //personaBinding.Source = personaModel; //Origen
-            //personaBinding.Path = "Nombre";//Ruta
-            //txtNombre.SetBinding(Entry.TextProperty, personaBinding);//Destino final
-            //txtNombre.Text = personaModel.Nombre;
-
-        }
-        //Evento Guardar
+        // Evento Guardar
         private void btnAceptar_Clicked(object sender, EventArgs e)
         {
-            //DisplayAlert("Asistente del sistema", "Se ah guardado el registro en la BD", "Aceptar");
-            personaModel.Nombre = "Alondra Flores";
+            DisplayAlert("Asistente del sistema", "Cargando los nuevos datos", "Aceptar");
+
+            // Cambiamos los valores en el modelo, y la UI se actualizará automáticamente
+            PersonaModel.Nombre = "Alondra";
+            PersonaModel.Apellido = "Montalvo";
+            PersonaModel.Edad = 19;
         }
     }
-
 }

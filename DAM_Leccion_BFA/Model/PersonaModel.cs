@@ -1,51 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace DAM_Leccion_BFA.Model
 {
     public class PersonaModel : INotifyPropertyChanged
     {
-
-        //Atributos
+        // Atributos privados
         private string? nombre;
         private string? apellido;
-        private string? edad;
+        private int? edad;  // Cambio a int?
 
-        //Propiedades
-        public string? Nombre {
-            get => nombre; set
+        // Propiedades con verificación de cambios
+        public string? Nombre
+        {
+            get => nombre;
+            set
             {
-                nombre = value;
-                OnPropertyChanged();
+                if (nombre != value)  // Solo notifica si hay un cambio real
+                {
+                    nombre = value;
+                    OnPropertyChanged();
+                }
             }
         }
+
         public string? Apellido
         {
-            get => apellido; set
+            get => apellido;
+            set
             {
-                apellido = value;
-                OnPropertyChanged();
+                if (apellido != value)
+                {
+                    apellido = value;
+                    OnPropertyChanged();
+                }
             }
         }
-        public string? Edad
+
+        public int? Edad  // Cambio de string? a int?
         {
-            get => edad; set
+            get => edad;
+            set
             {
-                edad = value;
-                OnPropertyChanged();
+                if (edad != value)
+                {
+                    edad = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
-
+        // Implementación de INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName=null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null!)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
