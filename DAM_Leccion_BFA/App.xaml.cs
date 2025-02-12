@@ -8,7 +8,8 @@ namespace DAM_Leccion_BFA
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            //MainPage = new AppShell();
+            MainPage = new PersonasView();
         }
     }
 }
