@@ -1,25 +1,20 @@
 ﻿using DAM_Leccion_BFA.Model;
+using DAM_Leccion_BFA.ViewModel;
+
 
 namespace DAM_Leccion_BFA
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
-
-        // Propiedad pública para que el binding funcione correctamente
-        public PersonaModel PersonaModel { get; set; }
+        MainPageViewModel mainPageViewModel = new MainPageViewModel();
+        
+    
 
         public MainPage()
         {
             InitializeComponent();
-            PersonaModel = new PersonaModel()
-            {
-                Nombre = "Lupita",
-                Apellido = "Olvera",
-                Edad = 25
-            };
-
-            BindingContext = PersonaModel;
+            BindingContext = mainPageViewModel;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
@@ -37,12 +32,11 @@ namespace DAM_Leccion_BFA
         // Evento Guardar
         private void btnAceptar_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Asistente del sistema", "Cargando los nuevos datos", "Aceptar");
-
+            //DisplayAlert("Asistente del sistema", "Cargando los nuevos datos", "Aceptar");
             // Cambiamos los valores en el modelo, y la UI se actualizará automáticamente
-            PersonaModel.Nombre = "Alondra";
-            PersonaModel.Apellido = "Montalvo";
-            PersonaModel.Edad = 19;
+            //PersonaModel.Nombre = "Alondra";
+            //PersonaModel.Apellido = "Montalvo";
+            //PersonaModel.Edad = 19;
         }
     }
 }

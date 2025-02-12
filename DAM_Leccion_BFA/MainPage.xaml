@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="DAM_Leccion_BFA.MainPage">
 
+
+
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -35,19 +37,19 @@
 
             <Entry
                 x:Name="txtNombre"
-                Text="{Binding Nombre}"
+                Text="{Binding personaModel.Nombre}"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Escribe un nombre"/>
 
             <Entry
                 x:Name="txtApellido"
-                Text="{Binding Apellido}"
+                Text="{Binding personaModel.Apellido}"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Escribe un apellido"/>
 
             <Entry
                 x:Name="txtEdad"
-                Text="{Binding Edad}"
+                Text="{Binding personaModel.Edad}"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Edad"
                 Keyboard="Numeric"/>

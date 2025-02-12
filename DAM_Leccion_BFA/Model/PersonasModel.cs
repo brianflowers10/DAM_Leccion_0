@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 
 namespace DAM_Leccion_BFA.Model
 {
-    public class PersonaModel : INotifyPropertyChanged
+    public class PersonasModel : INotifyPropertyChanged
     {
         // Atributos privados
         private string? nombre;
         private string? apellido;
-        private int? edad;  // Cambio a int?
+        private string? edad; 
 
         // Propiedades con verificación de cambios
         public string? Nombre
@@ -38,7 +38,7 @@ namespace DAM_Leccion_BFA.Model
             }
         }
 
-        public int? Edad  // Cambio de string? a int?
+        public String? Edad  // Cambio de string? a int?
         {
             get => edad;
             set
